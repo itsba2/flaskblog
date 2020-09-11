@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Articles</h3>
+<hr>
+
+{% if articles %}
+<form action="/search" method = "POST">
+<input name = "keyword" class=" form-control-borderless" type="search" placeholder="Search in articles">
+<button class="btn btn-sm btn-primary" type="submit">Search</button>
+</form>
+<hr>
+<ul class="list-group">
+  {% for article in articles  %}
+  <li class = "list-group-item"><a href="/article/{{article.id}}">{{article.title}}</a></li>
+  {% endfor %}
+</ul>
+
+
+{% else %}
+<div class = "alert alert-danger">No articles were found. </div>
+
+{% endif %}
+
+{% endblock body %}
+<h3>Articles</h3>
+
